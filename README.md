@@ -1,5 +1,6 @@
 # Credit-Risk-Modelling-
 credit-risk, risk-modeling, probability-of-default, pd-model, logistic-regression, xgboost, calibration, expected-loss, machine-learning, data-science, finance, banking, portfolio-analytics
+
 Project Overview
 . This project builds a full Credit Risk Modeling pipeline to estimate Probability of Default (PD) from a consumer loan dataset (cr_loan.csv). It benchmarks the industry-standard Logistic Regression model against a modern Gradient Boosting model (XGBoost), then translates risk scores into portfolio decisions using Expected Loss (EL = PD × LGD × EAD) and acceptance-rate strategy curves.
 .Unlike “just training a classifier,” this project is built to mirror real financial risk management:
@@ -7,7 +8,9 @@ Project Overview
 .imbalanced-class handling (SMOTE)
 .ROC/AUC + probability calibration (PD accuracy)
 .strategy tables to quantify growth vs risk trade-offs
+
 📊 Key Visualizations
+
 1) Segment Risk Diagnostics (EDA)
 Default-rate cross-tabs & pivot tables reveal which borrower/loan segments carry the most risk (e.g., intent, grade, home ownership).
 Outlier plots (boxplots + scatter) identify extreme exposures and affordability risk patterns that can distort PD estimates.
@@ -28,6 +31,7 @@ a Strategy Table (PD cutoff by acceptance rate)
 Acceptance vs Bad Rate curve
 Acceptance vs Value Proxy (EAD − EL) curve
 What it proves: the model is actionable for underwriting and risk appetite decisions.
+
 ❓ The Question (Problem Statement)
 Credit portfolios face a constant trade-off between:
 Growth: approving more loans increases portfolio size and revenue potential
@@ -39,6 +43,7 @@ The Goal: Create a bank-style decision framework that quantifies how changing PD
 .default risk (bad rate)
 .expected loss (EL)
 .portfolio value (growth vs loss)
+
 ✅ The Answer (Results)
 This project produces two competing PD models:
 .Logistic Regression: interpretable, governance-friendly baseline
@@ -55,17 +60,20 @@ phase 1- (cross-tabs/pivots)
 outlier detection (boxplots/scatter)
 missing data profiling and treatment
 data quality filters (e.g., unrealistic employment length)
+
 Phase 2 — Logistic Regression (Industry Standard)
 leakage-safe preprocessing:
 numeric median imputation
 categorical mode imputation + one-hot encoding
 PD modeling using predict_proba
 confusion matrix + precision/recall trade-off
+
 Phase 3 — XGBoost (Advanced Model)
 gradient boosting classifier
 class imbalance handling with SMOTE
 stratified k-fold cross-validation for stability
 risk driver analysis using Permutation Importance (AUC impact)
+
 Phase 4 — Evaluation & Business Strategy
 ROC/AUC comparison
 calibration curves (PD accuracy)
@@ -73,6 +81,7 @@ strategy table:
 PD thresholds by acceptance rate
 observed bad rate
 EL and value proxy comparisons
+
 🛠️ Libraries & Tech Stack
 pandas,numpy- Data cleaning,feature prep,numerical computation
 matplotlib-all plots(EDA,ROC,calibration,strategy curves)
