@@ -125,6 +125,19 @@ Phase 4 — Evaluation & Business Strategy:
 
 (c)EL and value proxy comparisons
 
+.Predicting a New Customer PD (probability and Default) and Loan Approval
+The trained model is used to score new loan applicants by estimating their Probability of Default (PD). 
+For a new borrower, the same preprocessing pipeline (imputation and encoding) is applied, and the model outputs a PD value between 0 and 1, representing the likelihood of default.
+
+In this project, a PD cutoff of 10% is selected based on the acceptance-rate vs bad-rate strategy curve, representing a balanced trade-off between portfolio growth and risk control.
+
+.If PD ≤ 10% → Loan is Approved
+
+.If PD > 10% → Loan is Rejected
+
+.For example, a new applicant with a predicted PD ≈ 9.05% falls below the cutoff and would be approved.
+The predicted PD is further translated into Expected Loss (EL = PD × LGD × EAD), allowing the bank to quantify potential loss and support pricing and underwriting decisions.
+
 🛠️ Libraries & Tech Stack
 
 .pandas,numpy- Data cleaning,feature prep,numerical computation
